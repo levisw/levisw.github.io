@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Levi Whitener</title>
+<meta name="description" content="Four analytics projects in R, SAS, and Excel, from rare-event classification on 4.86 million FDA records to a multi-source SAS reporting pipeline.">
+<link rel="canonical" href="https://levisw.github.io/projects.html">
+<meta name="theme-color" content="#141414">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Levi Whitener">
+<meta property="og:url" content="https://levisw.github.io/projects.html">
+<meta property="og:title" content="Projects — Levi Whitener">
+<meta property="og:description" content="Four analytics projects in R, SAS, and Excel, from rare-event classification on 4.86 million FDA records to a multi-source SAS reporting pipeline.">
+<meta property="og:image" content="https://levisw.github.io/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Levi Whitener, Data Analyst and MSBA Candidate">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Projects — Levi Whitener">
+<meta name="twitter:description" content="Four analytics projects in R, SAS, and Excel, each with the problem, approach, result, and my contribution.">
+<meta name="twitter:image" content="https://levisw.github.io/og-card.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  *, *::before, *::after{ box-sizing:border-box; }
+  :root{
+    --ink:#141414; --body:#33332e; --muted:#6d6d66;
+    --gold:#8a6d1f; --gold-bright:#c9a227;
+    --paper:#fdfdfb; --rule:#e2e0d9;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  body{ margin:0; background:var(--paper); color:var(--body);
+        font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+        font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+
+  nav{ background:var(--ink); }
+  nav .in{ max-width:1000px; margin:0 auto; padding:15px 30px; display:flex; gap:20px; align-items:baseline; flex-wrap:wrap; }
+  nav .who{ color:#fff; font-size:15px; font-weight:600; letter-spacing:-.01em; margin-right:auto; text-decoration:none; }
+  nav a{ font-family:var(--mono); font-size:12.5px; color:#b3b0a6; text-decoration:none; }
+  nav a.on{ color:var(--gold-bright); }
+  nav a:hover{ color:#fff; }
+
+  /* Same 1000px page and same 214px + 42px gap + content grid as the homepage,
+     so the reading column lands at an identical width and left edge. */
+  .page{ max-width:1000px; margin:0 auto; padding:34px 30px 0;
+         display:grid; grid-template-columns:214px 1fr; gap:0 42px; align-items:start; }
+  .col{ min-width:0; grid-column:2; }
+
+  .eyebrow{ width:38px; height:2px; background:var(--gold-bright); margin:0 0 20px; }
+  h1{ font-size:34px; line-height:1.24; margin:0 0 14px; letter-spacing:-.03em; font-weight:600; color:var(--ink); }
+  .intro{ font-size:17px; line-height:1.74; margin:0; }
+
+  .project{ border-top:1px solid var(--ink); margin-top:52px; padding-top:24px; }
+  .project h2{ font-size:23px; line-height:1.28; margin:0 0 10px; letter-spacing:-.025em; font-weight:600; color:var(--ink); }
+  .summary{ font-size:16.5px; margin:0 0 12px; }
+  .meta{ font-family:var(--mono); font-size:11.5px; color:var(--gold); margin-bottom:22px; }
+  .shot{ width:100%; height:auto; display:block; border:1px solid var(--rule); background:#f2f1ec; margin:0 0 26px; }
+
+  .lab{ font-family:var(--mono); font-size:11.5px; letter-spacing:.09em; text-transform:uppercase;
+        color:var(--muted); font-weight:400; margin:26px 0 8px; }
+  .project p{ margin:0 0 13px; }
+  code{ font-family:var(--mono); font-size:.88em; background:#f2f1ec; padding:1px 5px; }
+  .note{ font-size:14.5px; color:var(--muted); border-left:2px solid var(--rule); padding-left:14px; margin:18px 0 0; }
+
+  .links{ font-family:var(--mono); font-size:12.5px; margin-top:22px; display:flex; gap:18px; flex-wrap:wrap; }
+  .links a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--gold-bright); padding-bottom:1px; }
+  .links a:hover{ color:var(--gold); }
+
+  /* ── sidebar, identical to the homepage ── */
+  aside{ grid-column:1; grid-row:1; align-self:stretch; }
+  .rail{ position:static; }
+  @media (min-width:861px){
+    .rail{ position:sticky; top:24px; }
+  }
+  aside .shot{ width:100%; aspect-ratio:1/1; background:#f2f1ec; border:1px solid var(--rule);
+               display:flex; align-items:center; justify-content:center; text-align:center;
+               font-family:var(--mono); font-size:9px; color:#9a988f; line-height:1.6; margin-bottom:12px; }
+  aside .nm{ font-size:16px; font-weight:600; color:var(--ink); letter-spacing:-.015em; margin-bottom:3px; }
+  aside .hr{ height:1px; background:var(--rule); margin:14px 0; }
+  aside .sechead{ font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+                  color:var(--muted); margin-bottom:10px; }
+  aside .item{ font-size:13px; line-height:1.5; color:var(--body); margin-bottom:9px; }
+  aside .item:last-child{ margin-bottom:0; }
+  aside .item b{ display:block; font-weight:600; color:var(--ink); font-size:13.5px; }
+  aside .item span{ display:block; color:var(--muted); font-size:12px; }
+  aside .btn{ display:block; text-align:center; text-decoration:none;
+              font-family:var(--mono); font-size:11.5px; letter-spacing:.04em;
+              padding:9px 8px; margin-top:9px; }
+  aside .btn.primary{ background:var(--ink); color:#fff; }
+  aside .btn.primary:hover{ background:#000; }
+  aside .btn.secondary{ background:transparent; color:var(--ink); border:1px solid var(--gold-bright); }
+  aside .btn.secondary:hover{ background:var(--gold-bright); color:var(--ink); }
+
+  footer{ background:var(--ink); margin-top:64px; padding:34px 0; }
+  footer .in{ max-width:1000px; margin:0 auto; padding:0 30px; }
+  footer .cta{ color:#fff; font-size:19px; font-weight:600; margin:0 0 12px; letter-spacing:-.02em; }
+  footer p{ color:#9c998f; font-size:14.5px; margin:0 0 16px; max-width:52ch; }
+  footer .flinks{ font-family:var(--mono); font-size:13px; display:flex; gap:20px; flex-wrap:wrap; }
+  footer .flinks a{ color:#fff; text-decoration:none; border-bottom:1px solid var(--gold-bright); padding-bottom:2px; }
+  .fine{ font-family:var(--mono); font-size:11px; color:#6a6862; margin-top:24px; }
+
+  @media (max-width:860px){
+    .page{ grid-template-columns:1fr; gap:30px; padding-left:22px; padding-right:22px; }
+    .col, aside{ grid-column:auto; grid-row:auto; }
+    .rail{ position:static; }
+    .rail .shot{ max-width:150px; }
+    nav .in, footer .in{ padding-left:22px; padding-right:22px; }
+    aside{ order:-1; }
+    h1{ font-size:27px; }
+    .project h2{ font-size:20px; }
+    .project{ margin-top:40px; }
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="in">
+  <a class="who" href="index.html">Levi Whitener</a>
+  <a href="index.html">about</a><a class="on" href="projects.html">projects</a><a href="ai-in-analytics.html">ai in analytics</a><a href="levi-whitener-resume.pdf" target="_blank" rel="noopener">resume</a><a href="index.html#contact">contact</a>
+</div></nav>
+
+<div class="page">
+
+  <aside><div class="rail">
+    <div class="shot">HEADSHOT<br>PLACEHOLDER</div>
+    <div class="nm">Levi Whitener</div>
+
+    <div class="hr"></div>
+
+    <div class="sechead">Education</div>
+    <div class="item"><b>Wake Forest University</b>MS Business Analytics<span>May 2027</span></div>
+    <div class="item"><b>NC State University</b>BS Statistics<span>May 2026</span></div>
+
+    <div class="hr"></div>
+
+    <div class="sechead">Certifications</div>
+    <div class="item">Google Data Analytics</div>
+    <div class="item">Google Business Intelligence</div>
+    <div class="item">Google AI Professional</div>
+    <div class="item">Excel Purple Belt<span>McGraw Hill</span></div>
+
+    <a class="btn secondary" href="https://linkedin.com/in/levi-whitener" target="_blank" rel="noopener">LINKEDIN</a>
+    <a class="btn primary" href="levi-whitener-resume.pdf" target="_blank" rel="noopener">RESUME (PDF)</a>
+    <a class="btn secondary" href="https://github.com/levisw" target="_blank" rel="noopener">GITHUB</a>
+  </div></aside>
+
+  <div class="col">
+
+  <div class="eyebrow"></div>
+  <h1>Projects</h1>
+  <p class="intro">The projects below span R, SAS, and Excel. Each one follows the same four sections: problem, approach, result, and contribution.</p>
+
+<!-- ─────────── FDA ─────────── -->
+<article class="project" id="fda">
+  <h2>Flagging Fatal Outcomes in FDA Medical Device Reports</h2>
+  <p class="summary">A rare event classification problem on 4.86 million federal adverse event records, where the most accurate model turns out to be the least useful one.</p>
+  <div class="meta">r &middot; data.table &middot; naive bayes &middot; classification trees &middot; logistic regression &middot; r markdown</div>
+
+  <img class="shot" src="img/fda-model-comparison.png" alt="Overall accuracy versus death recall for five models. The classification tree reaches 99.0 percent accuracy with 0.0 percent death recall; the selected logistic model reaches 85.1 percent accuracy with 88.4 percent death recall.">
+
+  <h3 class="lab">Problem</h3>
+  <p>The FDA's MAUDE database collects adverse event reports filed against medical devices. Between 2022 and 2024 alone, that represents 3.2 million distinct reports, far more than any review team can read. Reports describing patient deaths account for only 1.22% of the total, making them a needle in a haystack. The goal was to determine whether the categorical fields already attached to every filing are enough to triage them reliably, pulling fatal outcomes forward so reviewers see them first.</p>
+
+  <h3 class="lab">Approach</h3>
+  <p>I ingested roughly 10 GB of pipe-delimited FDA extracts using <code>data.table</code>, including a 7 GB master file containing 20.7 million rows. After date-filtering to 2022&ndash;2024, I joined device attributes and problem code tables on the report key. Because a single filing can list multiple devices and problem codes, these many-to-many joins deliberately expanded 6.2 million reports into 8.6 million rows: each device and problem-code pairing is its own observation, so a report listing three devices contributes three rows rather than being collapsed into one and losing the detail that makes it predictable. Dropping records with missing modeling fields left a final working dataset of 4,863,433 rows.</p>
+  <p>To prevent data leakage, I built a custom grouped train/test split. Because the join extends one report across several rows, a simple row-level split puts different rows from the same report on both sides. In an early iteration, 10,120 out of 100,000 test rows shared a report key with training data. My grouped partition shuffled distinct report keys, assigned entire key blocks to individual samples, and enforced a hard assertion that training and test sets shared zero report keys before fitting models. This produced four disjoint 100,000-row training sets and a shared 100,000-row test set.</p>
+  <p>Across four independent replicates, I fit three model families: a 3-class Naive Bayes, one-versus-rest CART classification trees with cross-validated pruning, and binary logistic regression on the death outcome. Predictors with thousands of levels were collapsed to their top 31 categories plus an explicit "Other" bucket, as the R <code>tree</code> package caps factors at 32 levels. Collapsing the test set on its own would have produced a different 31 categories than the model trained on, so I mapped the test set onto each training sample's categories instead.</p>
+
+  <h3 class="lab">Result</h3>
+  <p>Raw accuracy proved to be a misleading metric. The pruned classification tree achieved 98.96% accuracy by collapsing to a single root node that predicted "no death" for every record, catching zero actual deaths. Logistic regression at a standard 0.5 decision cutoff was similarly ineffective, yielding only 3.6% death recall because predicted probabilities rarely clear 0.5 when the base rate is 1.2%.</p>
+  <p>Moving the decision threshold down to match the 1.2% training prevalence changed that. Death recall rose to 88.4%, with 85.1% accuracy, 85.0% specificity, and an AUC of 0.928. Feature screening showed the same tradeoff from a different angle. A reduced Naive Bayes model using only four predictors raised overall accuracy from 80.0% to 86.9%, but death recall fell from 83.4% to 54.3%. I kept the full model, because the accuracy the reduced one gained came entirely from injuries and malfunctions, the two outcomes I was not trying to catch.</p>
+  <p>Put into a live surveillance pipeline, the model would give a review team a queue worth reading instead of an unsorted backlog. Eighty-eight of every hundred fatal outcome reports would surface near the top rather than sitting somewhere inside 3.2 million filings, and the cost is reviewing the 15% of ordinary reports that get flagged alongside them.</p>
+
+  <h3 class="lab">Contribution</h3>
+  <p>This started as an undergraduate group project. After the course ended I rebuilt it on my own, reworking the pipeline around the grouped train/test split, writing the factor-alignment helpers, adding validation-based feature screening, and building the threshold-tuned logistic regression. I used AI throughout that rebuild, mainly for reading the raw files, tightening reproducibility, and the logistic regression itself, and the script comments mark where.</p>
+
+  <div class="links">
+    <a target="_blank" rel="noopener" href="https://github.com/levisw/FDA-Medical-Device-Failure-Classification/tree/main/R">view code on github</a>
+    <a target="_blank" rel="noopener" href="https://github.com/levisw/FDA-Medical-Device-Failure-Classification/blob/main/reports/final_report.pdf">read the full report</a>
+  </div>
+</article>
+
+<!-- ─────────── SAS ─────────── -->
+<article class="project" id="beverage">
+  <h2>Consolidating Eight Incompatible Sales Feeds in SAS</h2>
+  <p class="summary">Eight regional sources arriving in six different file layouts, reconciled into one standardized dataset and a formatted PDF report.</p>
+  <div class="meta">sas &middot; proc format &middot; proc report &middot; proc means &middot; sgplot &middot; sgpanel &middot; ods pdf</div>
+
+  <img class="shot" src="img/sas-sales-by-state.png" alt="Single unit non cola soda sales by state and flavor. North Carolina leads at roughly 2.9 million units, Georgia at 2.5 million, South Carolina at 1.45 million.">
+
+  <h3 class="lab">Problem</h3>
+  <p>A beverage distributor's sales data arrived from eight regional sources, each structured differently. One region logged readable product names while another used hyphen-delimited codes. Package sizes came in as free text ("20oz", "20 OZ", "2 Liter"), and dates arrived in three different formats. The files were just as mixed, spanning fixed-width, delimited text, native SAS datasets, and a Microsoft Access database. Raw volume created a separate problem, since comparing counties on units sold rewards the largest county every time, whether or not it is selling well for its size.</p>
+
+  <h3 class="lab">Approach</h3>
+  <p>I split the work into two programs, one that cleans and one that reports, so the reporting side can be rerun without reprocessing anything. The cleaning program reads all eight sources, using column, list, or formatted <code>INPUT</code> depending on how each file is laid out. A <code>PROC FORMAT</code> catalog decodes product codes into standardized names, and explicit <code>ATTRIB</code> statements set types, lengths, and labels before any rows are written. Stacking the feeds took an eight-way <code>SET</code> statement with <code>in=</code> flags, which is what keeps track of which source each row came from once they are all in one table.</p>
+
+  <p>I parsed the free-text product fields with a series of checks that run in a set order, deriving product category, sub-category, flavor, and container type. I normalized package sizes to a fixed list of allowed values. The order of those checks matters more than it sounds, since "Orangeade" has to be classified before "Orange" or every Orangeade in the file silently becomes an orange soda. Then I merged county population data in by state and county FIPS and computed sales per 1,000 residents, the metric that makes counties comparable to each other.</p>
+
+  <p>The reporting program reads those saved datasets and builds the PDF through ODS. It runs <code>PROC MEANS</code> summaries, <code>PROC FREQ</code> crosstabs, <code>PROC SGPLOT</code> charts, and <code>PROC SGPANEL</code> small multiples. The <code>PROC REPORT</code> tables use <code>COMPUTE</code> blocks to shade rows across a five-step grey scale, add computed columns, and turn a value red when a market falls below its threshold.</p>
+
+  <h3 class="lab">Result</h3>
+  <p>Normalizing sales by population made counties comparable regardless of size. North Carolina moves roughly twice the unit volume of South Carolina, but the five non-cola flavors sell in nearly identical proportions inside each state. That points at distribution reach, not flavor preference, as what separates a strong market from a weak one.</p>
+  <p>The report flags counties that fall below per-capita thresholds, with separate cutoffs of 7.5 per 1,000 for diet products and 30 per 1,000 for non-diet. That means the weak counties are already marked and easy for a regional manager to spot.</p>
+
+  <h3 class="lab">Contribution</h3>
+  <p>Solo project. I wrote both programs, the cleaning pipeline and the ODS reporting layer.</p>
+
+  <p class="note">The raw regional extracts and the Access database belong to the course and are not mine to redistribute. The repository has the SAS source, the generated PDF reports, and CSV exports of the derived datasets, with the original network paths removed from the code.</p>
+
+  <div class="links">
+    <a target="_blank" rel="noopener" href="https://github.com/levisw/Beverage-Company-Case-Study/tree/main/sas">view code on github</a>
+    <a target="_blank" rel="noopener" href="https://github.com/levisw/Beverage-Company-Case-Study/blob/main/reports/FinalReport.pdf">read the pdf report</a>
+  </div>
+</article>
+
+<!-- ─────────── BELLABEAT ─────────── -->
+<article class="project" id="bellabeat">
+  <h2>Finding a Marketing Angle in Consumer Wearable Data</h2>
+  <p class="summary">A wellness company went looking for growth opportunities in how people actually use smart devices. Sedentary time, not step count, turned out to be the signal worth marketing on.</p>
+  <div class="meta">r &middot; tidyverse &middot; janitor &middot; lubridate &middot; ggplot2</div>
+
+  <img class="shot" src="img/bellabeat-sedentary-sleep.png" alt="Sedentary minutes plotted against sleep duration, showing a clear negative relationship.">
+
+  <h3 class="lab">Problem</h3>
+  <p>Bellabeat, a manufacturer of women's wellness smart devices, wanted to identify consumer growth opportunities by analyzing real-world wearable usage. The available data covered 33 FitBit users over 31 days, with daily activity, hourly steps, intensity, sleep, and weight logs. That is a small, self-selected sample with no demographic information attached, so I treated everything it produced as a hypothesis worth testing rather than a finding to act on.</p>
+
+  <h3 class="lab">Approach</h3>
+  <p>I built the pipeline in R with raw and cleaned data kept separate, so the original files are never overwritten. Using <code>lubridate</code> and <code>janitor</code>, I deduplicated records, standardized inconsistent timestamp formats, and checked for missing values across every file. That is how the weight log got dropped, since only 8 of the 33 users ever logged weight. Rather than deleting the 77 days with zero steps, I flagged them as <code>LikelyNonWearDay</code>, which keeps the rows in the data while letting the activity statistics exclude days the device was not worn.</p>
+
+  <p>To evaluate activity and sleep on matching days, I joined the daily tables using an <code>inner_join</code>. I then tested two competing hypotheses against sleep duration: total daily steps versus daily sedentary minutes. To communicate findings to non-technical stakeholders, I developed a custom <code>ggplot2</code> design system (<code>theme_bellabeat</code>) and labeled the key numbers directly on each chart so a figure can be read on its own. Every analytical decision and rationale was tracked in a <code>DECISIONS.md</code> log.</p>
+
+  <h3 class="lab">Result</h3>
+  <p>Median daily activity was 8,053 steps, and only 7 of the 33 users averaged 10,000 or more. Users spent 66% of their tracked day sedentary and slept 7.0 hours on average, with 44% of logged nights falling under seven hours. Activity peaked in the early evening, around 18:00.</p>
+  <p>Of the two, total steps barely tracked with sleep duration (r = -0.19), while sedentary minutes showed a strong negative relationship (r = -0.60). How long someone sits still during the day relates to their sleep far more than how much they move.</p>
+  <p>That insight points the Time watch at a different pitch; instead of a 10,000-step goal that most of these users never hit, the device can be sold on sitting less, which is the behavior actually tied to better sleep. It also suggests timing in-app prompts to the early evening, when people are already moving rather than being asked to start.</p>
+
+  <h3 class="lab">Contribution</h3>
+  <p>Completed as the capstone case study for the Google Data Analytics Certificate. The business prompt and the Kaggle dataset came with the course; the profiling, the cleaning decisions, the statistical comparisons, the chart design, the decision log, and the recommendations were independently executed.</p>
+
+  <div class="links">
+    <a target="_blank" rel="noopener" href="https://github.com/levisw/Bellabeat-Case-Study/tree/main/analysis">view code on github</a>
+    <a target="_blank" rel="noopener" href="https://github.com/levisw/Bellabeat-Case-Study/blob/main/DECISIONS.md">read the decision log</a>
+  </div>
+</article>
+
+<!-- ─────────── DIAMONDS ─────────── -->
+<article class="project" id="diamonds">
+  <h2>What Actually Drives the Price of a Diamond</h2>
+  <p class="summary">Descriptive statistics, probability, and inference on 53,920 diamonds, built in Excel as a documented, version-controlled analysis rather than a one-off worksheet.</p>
+  <div class="meta">excel &middot; hypothesis testing &middot; confidence intervals &middot; empirical distributions &middot; github</div>
+
+  <h3 class="lab">Problem</h3>
+  <p>Diamond prices are driven by physical attributes, but which ones actually move the price is worth testing rather than assuming. Before fitting any model we wanted to know what we were working with, so the first questions were whether the standard normal-based tools are even valid on this data, and whether the industry grading scales reduce to categories a model can actually use.</p>
+
+  <h3 class="lab">Approach</h3>
+  <p>Starting with the raw dataset, I audited data quality and removed 20 structurally corrupted rows that bypassed standard missing-value checks, resulting in 53,920 clean records. Using the Universal Diamond Grading Scale, I recoded three high-cardinality grading dimensions down to three standardized levels each: Cut (Fair/Good &rarr; Fair; Very Good/Premium &rarr; Very Good), Color (D&ndash;F &rarr; Clear; G&ndash;J &rarr; Nonclear), and Clarity (I1&ndash;SI1 &rarr; Low; VS2&ndash;VS1 &rarr; Mid; VVS2&ndash;IF &rarr; High).</p>
+
+  <p>I conducted exploratory distribution profiling to test normality across continuous metrics, derived exact probability scenarios directly from empirical distributions, and constructed one-sample t-tests alongside 95% confidence intervals to evaluate population parameters for price and carat weight. The analysis was structured in Excel using version-controlled, documented logic steps rather than unanchored formulas.</p>
+
+  <h3 class="lab">Result</h3>
+  <p>Continuous diamond metrics violate standard normal-distribution assumptions. Price is severely right-skewed (mean of $3,930.99 versus a median of $2,401; skewness of 1.62), demonstrating that high-value outliers pull the average significantly above what a typical buyer spends. Because normal approximations fail on this distribution, empirical probabilities were used to establish that exactly 27.3% of diamonds in the market exceed $5,000.</p>
+
+  <p>Hypothesis testing highlighted how variance impacts statistical significance across metrics. Testing whether mean price is at least $4,000 resulted in a strong rejection (t = -4.02, p = 0.000029; 95% CI: $3,897.34 to $3,964.65). Conversely, testing whether mean carat weight is at least 0.80 failed to reject the benchmark (t = -1.13, p = 0.130). Despite evaluating similar threshold questions, price variance relative to its mean is drastically higher than carat weight variance, directly impacting test sensitivity.</p>
+
+  <h3 class="lab">Contribution</h3>
+  <p>Partner project for a graduate statistics course. I led the empirical distribution modeling, variable recoding logic, and inferential hypothesis testing stages.</p>
+
+  <div class="links">
+    <a target="_blank" rel="noopener" href="https://github.com/levisw/proj">view work on github</a>
+  </div>
+</article>
+
+  </div>
+</div>
+
+<footer id="contact"><div class="in">
+  <p class="cta">Looking for a data analyst role starting May 2027.</p>
+  <p>Open to financial services, healthcare, and consulting. Based in North Carolina and open to relocating for the right team.</p>
+  <div class="flinks">
+    <a href="mailto:leviswhitener@gmail.com">leviswhitener@gmail.com</a>
+    <a href="levi-whitener-resume.pdf" target="_blank" rel="noopener">resume (pdf)</a>
+    <a href="https://linkedin.com/in/levi-whitener" target="_blank" rel="noopener">linkedin</a>
+    <a href="https://github.com/levisw" target="_blank" rel="noopener">github</a>
+  </div>
+  <div class="fine">MSBA Candidate, Wake Forest University School of Business</div>
+</div></footer>
+
+</body>
+</html>

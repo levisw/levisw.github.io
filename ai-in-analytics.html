@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI in Analytics — Levi Whitener</title>
+<meta name="description" content="How AI is changing early-career analytics work, why judgment still decides outcomes, and how the Wake Forest MSBA program builds both into coursework.">
+<link rel="canonical" href="https://levisw.github.io/ai-in-analytics.html">
+<meta name="theme-color" content="#141414">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Levi Whitener">
+<meta property="og:url" content="https://levisw.github.io/ai-in-analytics.html">
+<meta property="og:title" content="AI in Analytics — Levi Whitener">
+<meta property="og:description" content="How AI is changing early-career analytics work, why judgment still decides outcomes, and how the Wake Forest MSBA program builds both into coursework.">
+<meta property="og:image" content="https://levisw.github.io/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Levi Whitener, Data Analyst and MSBA Candidate">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI in Analytics — Levi Whitener">
+<meta name="twitter:description" content="Execution got cheap. Knowing what to ask for did not.">
+<meta name="twitter:image" content="https://levisw.github.io/og-card.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  *, *::before, *::after{ box-sizing:border-box; }
+  :root{
+    --ink:#141414; --body:#33332e; --muted:#6d6d66;
+    --gold:#8a6d1f; --gold-bright:#c9a227;
+    --paper:#fdfdfb; --rule:#e2e0d9;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  body{ margin:0; background:var(--paper); color:var(--body);
+        font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+        font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+
+  nav{ background:var(--ink); }
+  nav .in{ max-width:1000px; margin:0 auto; padding:15px 30px; display:flex; gap:20px; align-items:baseline; flex-wrap:wrap; }
+  nav .who{ color:#fff; font-size:15px; font-weight:600; letter-spacing:-.01em; margin-right:auto; text-decoration:none; }
+  nav a{ font-family:var(--mono); font-size:12.5px; color:#b3b0a6; text-decoration:none; }
+  nav a.on{ color:var(--gold-bright); }
+  nav a:hover{ color:#fff; }
+
+  /* Same 1000px page and same 214px + 42px gap + content grid as the other pages,
+     so the reading column lands at an identical width and left edge. */
+  .page{ max-width:1000px; margin:0 auto; padding:34px 30px 0;
+         display:grid; grid-template-columns:214px 1fr; gap:0 42px; align-items:start; }
+  .col{ min-width:0; grid-column:2; }
+
+  .eyebrow{ width:38px; height:2px; background:var(--gold-bright); margin:0 0 20px; }
+  h1{ font-size:34px; line-height:1.24; margin:0 0 14px; letter-spacing:-.03em; font-weight:600; color:var(--ink); }
+  .intro{ font-size:17px; line-height:1.74; margin:0 0 8px; }
+
+  article{ margin-top:36px; padding-top:24px; border-top:1px solid var(--ink); max-width:66ch; }
+  article p{ font-size:16.5px; line-height:1.78; margin:0 0 20px; }
+  article p:last-child{ margin-bottom:0; }
+
+  /* ── sidebar, identical to the other pages ── */
+  aside{ grid-column:1; grid-row:1; align-self:stretch; }
+  .rail{ position:static; }
+  @media (min-width:861px){
+    .rail{ position:sticky; top:24px; }
+  }
+  aside .shot{ width:100%; aspect-ratio:1/1; background:#f2f1ec; border:1px solid var(--rule);
+               display:flex; align-items:center; justify-content:center; text-align:center;
+               font-family:var(--mono); font-size:9px; color:#9a988f; line-height:1.6; margin-bottom:12px; }
+  aside .nm{ font-size:16px; font-weight:600; color:var(--ink); letter-spacing:-.015em; margin-bottom:3px; }
+  aside .hr{ height:1px; background:var(--rule); margin:14px 0; }
+  aside .sechead{ font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+                  color:var(--muted); margin-bottom:10px; }
+  aside .item{ font-size:13px; line-height:1.5; color:var(--body); margin-bottom:9px; }
+  aside .item:last-child{ margin-bottom:0; }
+  aside .item b{ display:block; font-weight:600; color:var(--ink); font-size:13.5px; }
+  aside .item span{ display:block; color:var(--muted); font-size:12px; }
+  aside .btn{ display:block; text-align:center; text-decoration:none;
+              font-family:var(--mono); font-size:11.5px; letter-spacing:.04em;
+              padding:9px 8px; margin-top:9px; }
+  aside .btn.primary{ background:var(--ink); color:#fff; }
+  aside .btn.primary:hover{ background:#000; }
+  aside .btn.secondary{ background:transparent; color:var(--ink); border:1px solid var(--gold-bright); }
+  aside .btn.secondary:hover{ background:var(--gold-bright); color:var(--ink); }
+
+  footer{ background:var(--ink); margin-top:64px; padding:34px 0; }
+  footer .in{ max-width:1000px; margin:0 auto; padding:0 30px; }
+  footer .cta{ color:#fff; font-size:19px; font-weight:600; margin:0 0 12px; letter-spacing:-.02em; }
+  footer p{ color:#9c998f; font-size:14.5px; margin:0 0 16px; max-width:52ch; }
+  footer .flinks{ font-family:var(--mono); font-size:13px; display:flex; gap:20px; flex-wrap:wrap; }
+  footer .flinks a{ color:#fff; text-decoration:none; border-bottom:1px solid var(--gold-bright); padding-bottom:2px; }
+  .fine{ font-family:var(--mono); font-size:11px; color:#6a6862; margin-top:24px; }
+
+  @media (max-width:860px){
+    .page{ grid-template-columns:1fr; gap:30px; padding-left:22px; padding-right:22px; }
+    .col, aside{ grid-column:auto; grid-row:auto; }
+    .rail{ position:static; }
+    .rail .shot{ max-width:150px; }
+    nav .in, footer .in{ padding-left:22px; padding-right:22px; }
+    aside{ order:-1; }
+    h1{ font-size:27px; }
+    article{ margin-top:28px; }
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="in">
+  <a class="who" href="index.html">Levi Whitener</a>
+  <a href="index.html">about</a><a href="projects.html">projects</a><a class="on" href="ai-in-analytics.html">ai in analytics</a><a href="levi-whitener-resume.pdf" target="_blank" rel="noopener">resume</a><a href="index.html#contact">contact</a>
+</div></nav>
+
+<div class="page">
+
+  <aside><div class="rail">
+    <div class="shot">HEADSHOT<br>PLACEHOLDER</div>
+    <div class="nm">Levi Whitener</div>
+
+    <div class="hr"></div>
+
+    <div class="sechead">Education</div>
+    <div class="item"><b>Wake Forest University</b>MS Business Analytics<span>May 2027</span></div>
+    <div class="item"><b>NC State University</b>BS Statistics<span>May 2026</span></div>
+
+    <div class="hr"></div>
+
+    <div class="sechead">Certifications</div>
+    <div class="item">Google Data Analytics</div>
+    <div class="item">Google Business Intelligence</div>
+    <div class="item">Google AI Professional</div>
+    <div class="item">Excel Purple Belt<span>McGraw Hill</span></div>
+
+    <a class="btn secondary" href="https://linkedin.com/in/levi-whitener" target="_blank" rel="noopener">LINKEDIN</a>
+    <a class="btn primary" href="levi-whitener-resume.pdf" target="_blank" rel="noopener">RESUME (PDF)</a>
+    <a class="btn secondary" href="https://github.com/levisw" target="_blank" rel="noopener">GITHUB</a>
+  </div></aside>
+
+  <div class="col">
+
+  <div class="eyebrow"></div>
+  <h1>AI in Analytics</h1>
+
+  <article>
+    <p>AI has changed what the first few years of an analytics career look like. Writing the query, remembering the syntax, cleaning the obvious problems out of a file, all of that is faster and cheaper than it was two years ago. What has not gotten any cheaper is knowing what to ask for in the first place, and that is still the part a company is paying someone to bring.</p>
+
+    <p>The MSBA program at Wake Forest does not treat that as a hypothetical. One regression assignment requires writing the interpretation of the model's coefficients myself first, only after that using a GenAI tool to sharpen the explanation, then citing exactly how it was used and where it fell short. In a Python course, I used it the other way, more like a tutor for exploring the pandas package. When I was not sure whether to filter, reshape, or group a dataframe a certain way, I would ask it to walk through a couple of approaches, then run each one myself and check the result against what I expected.</p>
+
+    <p>The FDA project on this site is the clearest example of why that judgment still matters. The best model in that comparison scores 98.96 percent accuracy and catches zero deaths, because predicting no death every time is nearly free when deaths are only 1.2 percent of the data. No tool flagged that accuracy was the wrong number to optimize for. Catching that took knowing what question to ask, and that is the part that does not get automated.</p>
+
+    <p>Staying useful means building both sides of that at once. Five of my certificates sit in this territory, from Google's Data Analytics and Business Intelligence tracks through AI Essentials, AI for Data Analysis, and the AI Professional Certificate. The useful part was not a specific skill, it was learning where these tools are reliable and where they are confidently wrong. That shows up in practice as getting something useful back on the first or second try instead of the fifth.</p>
+
+    <p>Statistics tells me what question to ask and whether an answer actually holds up. AI shortens the distance between asking the question and getting a working answer. Neither one is worth much without the other, because a fast wrong answer just moves a bad decision along more quickly. Building both at once is what the rest of this site is showing.</p>
+  </article>
+
+  </div>
+</div>
+
+<footer id="contact"><div class="in">
+  <p class="cta">Looking for a data analyst role starting May 2027.</p>
+  <p>Open to financial services, healthcare, and consulting. Based in North Carolina and open to relocating for the right team.</p>
+  <div class="flinks">
+    <a href="mailto:leviswhitener@gmail.com">leviswhitener@gmail.com</a>
+    <a href="levi-whitener-resume.pdf" target="_blank" rel="noopener">resume (pdf)</a>
+    <a href="https://linkedin.com/in/levi-whitener" target="_blank" rel="noopener">linkedin</a>
+    <a href="https://github.com/levisw" target="_blank" rel="noopener">github</a>
+  </div>
+  <div class="fine">MSBA Candidate, Wake Forest University School of Business</div>
+</div></footer>
+
+</body>
+</html>
