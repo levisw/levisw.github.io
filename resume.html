@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resume — Levi Whitener</title>
+<meta name="description" content="Resume for Levi Whitener, data analyst and Wake Forest MSBA candidate with a BS in Statistics from NC State. Viewable in the browser or downloadable as a PDF.">
+<link rel="canonical" href="https://levisw.github.io/resume.html">
+<meta name="theme-color" content="#141414">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Levi Whitener">
+<meta property="og:url" content="https://levisw.github.io/resume.html">
+<meta property="og:title" content="Resume — Levi Whitener">
+<meta property="og:description" content="Resume for Levi Whitener, data analyst and Wake Forest MSBA candidate with a BS in Statistics from NC State.">
+<meta property="og:image" content="https://levisw.github.io/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Levi Whitener, Data Analyst and MSBA Candidate">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Resume — Levi Whitener">
+<meta name="twitter:description" content="Data analyst and Wake Forest MSBA candidate. Read the resume in the browser or download the PDF.">
+<meta name="twitter:image" content="https://levisw.github.io/og-card.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  *, *::before, *::after{ box-sizing:border-box; }
+  :root{
+    --ink:#141414; --body:#33332e; --muted:#6d6d66;
+    --gold:#8a6d1f; --gold-bright:#c9a227;
+    --paper:#fdfdfb; --rule:#e2e0d9;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  body{ margin:0; background:var(--paper); color:var(--body);
+        font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+        font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+
+  nav{ background:var(--ink); }
+  nav .in{ max-width:1000px; margin:0 auto; padding:15px 30px; display:flex; gap:20px; align-items:baseline; flex-wrap:wrap; }
+  nav .who{ color:#fff; font-size:15px; font-weight:600; letter-spacing:-.01em; margin-right:auto; text-decoration:none; }
+  nav a{ font-family:var(--mono); font-size:12.5px; color:#b3b0a6; text-decoration:none; }
+  nav a.on{ color:var(--gold-bright); }
+  nav a:hover{ color:#fff; }
+
+  /* This page drops the sidebar on purpose. The rail carries the name, education,
+     and certifications, all of which are already inside the document being shown,
+     and the full 1000px gives the embedded page enough width to be readable. */
+  .page{ max-width:1000px; margin:0 auto; padding:34px 30px 0; }
+
+  .eyebrow{ width:38px; height:2px; background:var(--gold-bright); margin:0 0 20px; }
+  h1{ font-size:34px; line-height:1.24; margin:0 0 14px; letter-spacing:-.03em; font-weight:600; color:var(--ink); }
+  .intro{ font-size:17px; line-height:1.74; margin:0; max-width:62ch; }
+
+  .acts{ display:flex; gap:12px; flex-wrap:wrap; margin:24px 0 0; }
+  .acts a{ font-family:var(--mono); font-size:11.5px; letter-spacing:.04em;
+           text-decoration:none; padding:10px 18px; }
+  .acts a.primary{ background:var(--ink); color:#fff; }
+  .acts a.primary:hover{ background:#000; }
+  .acts a.secondary{ background:transparent; color:var(--ink); border:1px solid var(--gold-bright); }
+  .acts a.secondary:hover{ background:var(--gold-bright); color:var(--ink); }
+
+  /* US Letter is 8.5 x 11, so 17/22 keeps the embedded page at its true
+     proportions at any container width. min-height stops it collapsing if a
+     browser cannot work out an intrinsic size for the object. */
+  .viewer{ margin-top:30px; border:1px solid var(--rule); background:#f2f1ec; }
+  .viewer object{ display:block; width:100%; aspect-ratio:17/22; min-height:640px; border:0; }
+
+  /* Mobile browsers, iOS Safari in particular, will not render a PDF inside an
+     object and often show an empty grey box rather than falling back. Swapping
+     the whole element out below the breakpoint is the only reliable fix without
+     scripting, so small screens get a card instead. */
+  .nopdf{ display:none; border:1px solid var(--rule); background:#f2f1ec;
+          padding:26px 22px; margin-top:30px; text-align:center; }
+  .nopdf p{ font-size:15px; margin:0 0 18px; color:var(--body); }
+  .nopdf a{ display:inline-block; background:var(--ink); color:#fff; text-decoration:none;
+            font-family:var(--mono); font-size:11.5px; letter-spacing:.04em; padding:11px 20px; }
+
+  footer{ background:var(--ink); margin-top:60px; padding:34px 0; }
+  footer .in{ max-width:1000px; margin:0 auto; padding:0 30px; }
+  footer .cta{ color:#fff; font-size:19px; font-weight:600; margin:0 0 12px; letter-spacing:-.02em; }
+  footer p{ color:#9c998f; font-size:14.5px; margin:0 0 16px; max-width:52ch; }
+  footer .flinks{ font-family:var(--mono); font-size:13px; display:flex; gap:20px; flex-wrap:wrap; }
+  footer .flinks a{ color:#fff; text-decoration:none; border-bottom:1px solid var(--gold-bright); padding-bottom:2px; }
+  .fine{ font-family:var(--mono); font-size:11px; color:#6a6862; margin-top:24px; }
+
+  @media (max-width:860px){
+    .page{ padding-left:22px; padding-right:22px; }
+    nav .in, footer .in{ padding-left:22px; padding-right:22px; }
+    h1{ font-size:27px; }
+    .viewer{ display:none; }
+    .nopdf{ display:block; }
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="in">
+  <a class="who" href="index.html">Levi Whitener</a>
+  <a href="index.html">home</a><a href="projects.html">projects</a><a href="ai-in-analytics.html">ai in analytics</a><a class="on" href="resume.html">resume</a><a href="contact.html">contact</a>
+</div></nav>
+
+<div class="page">
+
+  <div class="eyebrow"></div>
+  <h1>Resume</h1>
+  <p class="intro">Current as of August 2026.</p>
+
+  <div class="acts">
+    <a class="primary" href="levi-whitener-resume.pdf" download>DOWNLOAD PDF</a>
+    <a class="secondary" href="levi-whitener-resume.pdf" target="_blank" rel="noopener">OPEN IN NEW TAB</a>
+  </div>
+
+  <div class="viewer">
+    <object data="levi-whitener-resume.pdf" type="application/pdf" aria-label="Resume for Levi Whitener">
+      <div class="nopdf" style="display:block;border:0;margin:0;">
+        <p>This browser will not display the PDF inline.</p>
+        <a href="levi-whitener-resume.pdf" target="_blank" rel="noopener">OPEN THE PDF</a>
+      </div>
+    </object>
+  </div>
+
+  <div class="nopdf">
+    <p>Resumes read poorly squeezed onto a phone screen, so this one opens in your PDF reader instead.</p>
+    <a href="levi-whitener-resume.pdf" target="_blank" rel="noopener">OPEN THE RESUME</a>
+  </div>
+
+</div>
+
+<footer><div class="in">
+  <p class="cta">Looking for a data analyst role starting May 2027.</p>
+  <p>Open to financial services, healthcare, and consulting.</p>
+  <div class="flinks">
+    <a href="contact.html">contact</a>
+    <a href="mailto:leviswhitener@gmail.com">leviswhitener@gmail.com</a>
+    <a href="https://linkedin.com/in/levi-whitener" target="_blank" rel="noopener">linkedin</a>
+    <a href="https://github.com/levisw" target="_blank" rel="noopener">github</a>
+  </div>
+  <div class="fine">MSBA Candidate, Wake Forest University School of Business</div>
+</div></footer>
+
+</body>
+</html>

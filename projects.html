@@ -54,7 +54,19 @@
   h1{ font-size:34px; line-height:1.24; margin:0 0 14px; letter-spacing:-.03em; font-weight:600; color:var(--ink); }
   .intro{ font-size:17px; line-height:1.74; margin:0; }
 
-  .project{ border-top:1px solid var(--ink); margin-top:52px; padding-top:24px; }
+  /* Jump index. Gives the page a visible table of contents so a reader can see
+     all four write-ups at once instead of scrolling to discover them. */
+  .jump{ list-style:none; margin:26px 0 0; padding:0; border-top:1px solid var(--ink); }
+  .jump li{ border-bottom:1px solid var(--rule); padding:11px 0;
+            display:flex; gap:18px; align-items:baseline; justify-content:space-between; }
+  .jump a{ font-size:15.5px; color:var(--ink); text-decoration:none;
+           border-bottom:1px solid var(--gold-bright); padding-bottom:1px; }
+  .jump a:hover{ color:var(--gold); }
+  .jump span{ font-family:var(--mono); font-size:11px; color:var(--muted);
+              letter-spacing:.05em; white-space:nowrap; }
+
+  /* Anchored jumps land with a little air above the black rule. */
+  .project{ border-top:1px solid var(--ink); margin-top:52px; padding-top:24px; scroll-margin-top:22px; }
   .project h2{ font-size:23px; line-height:1.28; margin:0 0 10px; letter-spacing:-.025em; font-weight:600; color:var(--ink); }
   .summary{ font-size:16.5px; margin:0 0 12px; }
   .meta{ font-family:var(--mono); font-size:11.5px; color:var(--gold); margin-bottom:22px; }
@@ -63,6 +75,8 @@
   .lab{ font-family:var(--mono); font-size:11.5px; letter-spacing:.09em; text-transform:uppercase;
         color:var(--muted); font-weight:400; margin:26px 0 8px; }
   .project p{ margin:0 0 13px; }
+  .project p a{ color:var(--ink); text-decoration:none; border-bottom:1px solid var(--gold-bright); }
+  .project p a:hover{ color:var(--gold); }
   code{ font-family:var(--mono); font-size:.88em; background:#f2f1ec; padding:1px 5px; }
   .note{ font-size:14.5px; color:var(--muted); border-left:2px solid var(--rule); padding-left:14px; margin:18px 0 0; }
 
@@ -113,6 +127,7 @@
     h1{ font-size:27px; }
     .project h2{ font-size:20px; }
     .project{ margin-top:40px; }
+    .jump li{ flex-direction:column; align-items:flex-start; gap:3px; }
   }
 </style>
 </head>
@@ -120,7 +135,7 @@
 
 <nav><div class="in">
   <a class="who" href="index.html">Levi Whitener</a>
-  <a href="index.html">about</a><a class="on" href="projects.html">projects</a><a href="ai-in-analytics.html">ai in analytics</a><a href="levi-whitener-resume.pdf" target="_blank" rel="noopener">resume</a><a href="index.html#contact">contact</a>
+  <a href="index.html">home</a><a class="on" href="projects.html">projects</a><a href="ai-in-analytics.html">ai in analytics</a><a href="resume.html">resume</a><a href="contact.html">contact</a>
 </div></nav>
 
 <div class="page">
@@ -144,7 +159,7 @@
     <div class="item">Excel Purple Belt<span>McGraw Hill</span></div>
 
     <a class="btn secondary" href="https://linkedin.com/in/levi-whitener" target="_blank" rel="noopener">LINKEDIN</a>
-    <a class="btn primary" href="levi-whitener-resume.pdf" target="_blank" rel="noopener">RESUME (PDF)</a>
+    <a class="btn primary" href="resume.html">RESUME</a>
     <a class="btn secondary" href="https://github.com/levisw" target="_blank" rel="noopener">GITHUB</a>
   </div></aside>
 
@@ -153,6 +168,13 @@
   <div class="eyebrow"></div>
   <h1>Projects</h1>
   <p class="intro">The projects below span R, SAS, and Excel. Each one follows the same four sections: problem, approach, result, and contribution.</p>
+
+  <ol class="jump">
+    <li><a href="#fda">Flagging Fatal Outcomes in FDA Medical Device Reports</a><span>r &middot; classification</span></li>
+    <li><a href="#beverage">Consolidating Eight Incompatible Sales Feeds in SAS</a><span>sas &middot; data pipeline</span></li>
+    <li><a href="#bellabeat">Finding a Marketing Angle in Consumer Wearable Data</a><span>r &middot; exploratory analysis</span></li>
+    <li><a href="#diamonds">What Actually Drives the Price of a Diamond</a><span>excel &middot; inference</span></li>
+  </ol>
 
 <!-- ─────────── FDA ─────────── -->
 <article class="project" id="fda">
@@ -176,7 +198,7 @@
   <p>Put into a live surveillance pipeline, the model would give a review team a queue worth reading instead of an unsorted backlog. Eighty-eight of every hundred fatal outcome reports would surface near the top rather than sitting somewhere inside 3.2 million filings, and the cost is reviewing the 15% of ordinary reports that get flagged alongside them.</p>
 
   <h3 class="lab">Contribution</h3>
-  <p>This started as an undergraduate group project. After the course ended I rebuilt it on my own, reworking the pipeline around the grouped train/test split, writing the factor-alignment helpers, adding validation-based feature screening, and building the threshold-tuned logistic regression. I used AI throughout that rebuild, mainly for reading the raw files, tightening reproducibility, and the logistic regression itself, and the script comments mark where.</p>
+  <p>This started as an undergraduate group project. After the course ended I rebuilt it on my own, reworking the pipeline around the grouped train/test split, writing the factor-alignment helpers, adding validation-based feature screening, and building the threshold-tuned logistic regression. I used AI throughout that rebuild, mainly for reading the raw files, tightening reproducibility, and the logistic regression itself, and the script comments mark where. The accuracy trap above is the clearest case I have run into of a judgment call no tool made for me, and I wrote about that at more length in <a href="ai-in-analytics.html">AI in Analytics</a>.</p>
 
   <div class="links">
     <a target="_blank" rel="noopener" href="https://github.com/levisw/FDA-Medical-Device-Failure-Classification/tree/main/R">view code on github</a>
@@ -279,10 +301,11 @@
 
 <footer id="contact"><div class="in">
   <p class="cta">Looking for a data analyst role starting May 2027.</p>
-  <p>Open to financial services, healthcare, and consulting. Based in North Carolina and open to relocating for the right team.</p>
+  <p>Open to financial services, healthcare, and consulting.</p>
   <div class="flinks">
+    <a href="contact.html">contact</a>
     <a href="mailto:leviswhitener@gmail.com">leviswhitener@gmail.com</a>
-    <a href="levi-whitener-resume.pdf" target="_blank" rel="noopener">resume (pdf)</a>
+    <a href="resume.html">resume</a>
     <a href="https://linkedin.com/in/levi-whitener" target="_blank" rel="noopener">linkedin</a>
     <a href="https://github.com/levisw" target="_blank" rel="noopener">github</a>
   </div>

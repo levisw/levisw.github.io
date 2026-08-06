@@ -9,6 +9,8 @@
 - [Home](https://levisw.github.io/): Introduction, video, two featured projects, and skills.
 - [Projects](https://levisw.github.io/projects.html): Four analytics projects, each written up as problem, approach, result, and contribution.
 - [AI in Analytics](https://levisw.github.io/ai-in-analytics.html): Where AI has and has not changed early-career analytics work.
+- [Resume](https://levisw.github.io/resume.html): The one-page resume, readable in the browser and downloadable as a PDF.
+- [Contact](https://levisw.github.io/contact.html): Email, LinkedIn, GitHub, location, availability, and the roles being targeted.
 
 ## Projects
 
