@@ -4,8 +4,6 @@ Personal portfolio for Levi Whitener, data analyst and Wake Forest MSBA candidat
 
 Live at **https://levisw.github.io**
 
-Plain static HTML and CSS. No build step, no framework, no JavaScript.
-
 ```
 index.html              Home: intro, video, featured projects, skills
 projects.html           Four project write-ups (problem, approach, result, contribution)
@@ -16,5 +14,3 @@ contact.html            Email, profiles, availability, and roles being targeted
 img/                    Charts generated from the project repos
 levi-whitener-resume.pdf
 ```
-
-Project code lives in separate repositories, linked from the projects page.
