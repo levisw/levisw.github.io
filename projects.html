@@ -174,7 +174,7 @@
     <li><a href="#fda">Flagging Fatal Outcomes in FDA Medical Device Reports</a><span>r &middot; classification</span></li>
     <li><a href="#beverage">Consolidating Eight Incompatible Sales Feeds in SAS</a><span>sas &middot; data pipeline</span></li>
     <li><a href="#bellabeat">Finding a Marketing Angle in Consumer Wearable Data</a><span>r &middot; exploratory analysis</span></li>
-    <li><a href="#diamonds">What Actually Drives the Price of a Diamond</a><span>excel &middot; inference</span></li>
+    <li><a href="#diamonds">What Actually Drives the Price of a Diamond</a><span>excel &middot; regression</span></li>
   </ol>
 
 <!-- ─────────── FDA ─────────── -->
@@ -273,27 +273,38 @@
 <!-- ─────────── DIAMONDS ─────────── -->
 <article class="project" id="diamonds">
   <h2>What Actually Drives the Price of a Diamond</h2>
-  <p class="summary">Descriptive statistics, probability, and inference on 53,920 diamonds, built in Excel as a documented, version-controlled analysis rather than a one-off worksheet.</p>
-  <div class="meta">excel &middot; hypothesis testing &middot; confidence intervals &middot; empirical distributions &middot; github</div>
+  <p class="summary">Descriptive statistics, probability, inference, and regression on 53,920 diamonds, built in Excel as a documented, version-controlled analysis rather than a one-off worksheet.</p>
+  <div class="meta">excel &middot; hypothesis testing &middot; confidence intervals &middot; empirical distributions &middot; multiple regression &middot; github</div>
+
+  <img class="shot" src="img/diamond-price-drivers.png" alt="Final regression coefficients in dollars added to predicted price. Carat is worth $8,519 per carat, High clarity $1,920, Mid clarity $1,187, Clear color $737, Ideal cut $472, Very Good cut $398, while depth percentage and table are negative at -$58 and -$40 per percentage point.">
 
   <h3 class="lab">Problem</h3>
-  <p>Diamond prices are driven by physical attributes, but which ones actually move the price is worth testing rather than assuming. Before fitting any model we wanted to know what we were working with, so the first questions were whether the standard normal-based tools are even valid on this data, and whether the industry grading scales reduce to categories a model can actually use.</p>
+  <p>Diamond prices are driven by physical attributes, but which ones actually move the price is worth testing rather than assuming. Before fitting any model we wanted to know what we were working with, so the first questions were whether the standard normal-based tools are even valid on this data, and whether the industry grading scales reduce to categories a model can actually use. The last question was the one the project was built toward: with size and all three quality grades in the same model, how much of the price is weight and how much is grade?</p>
 
   <h3 class="lab">Approach</h3>
   <p>Starting with the raw dataset, I audited data quality and removed 20 structurally corrupted rows that bypassed standard missing-value checks, resulting in 53,920 clean records. Using the Universal Diamond Grading Scale, I recoded three high-cardinality grading dimensions down to three standardized levels each: Cut (Fair/Good &rarr; Fair; Very Good/Premium &rarr; Very Good), Color (D&ndash;F &rarr; Clear; G&ndash;J &rarr; Nonclear), and Clarity (I1&ndash;SI1 &rarr; Low; VS2&ndash;VS1 &rarr; Mid; VVS2&ndash;IF &rarr; High).</p>
 
   <p>I conducted exploratory distribution profiling to test normality across continuous metrics, derived exact probability scenarios directly from empirical distributions, and constructed one-sample t-tests alongside 95% confidence intervals to evaluate population parameters for price and carat weight. The analysis was structured in Excel using version-controlled, documented logic steps rather than unanchored formulas.</p>
 
+  <p>The regression stage started with all 11 predictors, and every one of them came back significant at 0.05. That left nothing to drop on p-values, so the first cut had to come from somewhere else. The correlation matrix showed carat, length, width, and depth all sitting between 0.95 and 0.98, which is what you would expect from four different ways of measuring the size of the same stone. We removed length, width, and depth and kept carat as the single size variable, partly because carat is the industry's own measure and partly because width had already been flagged as unreliable during cleaning.</p>
+
   <h3 class="lab">Result</h3>
   <p>Continuous diamond metrics violate standard normal-distribution assumptions. Price is severely right-skewed (mean of $3,930.99 versus a median of $2,401; skewness of 1.62), demonstrating that high-value outliers pull the average significantly above what a typical buyer spends. Because normal approximations fail on this distribution, empirical probabilities were used to establish that exactly 27.3% of diamonds in the market exceed $5,000.</p>
 
   <p>Hypothesis testing highlighted how variance impacts statistical significance across metrics. Testing whether mean price is at least $4,000 resulted in a strong rejection (t = -4.02, p = 0.000029; 95% CI: $3,897.34 to $3,964.65). Conversely, testing whether mean carat weight is at least 0.80 failed to reject the benchmark (t = -1.13, p = 0.130). Despite evaluating similar threshold questions, price variance relative to its mean is drastically higher than carat weight variance, directly impacting test sensitivity.</p>
 
+  <p>Dropping the three correlated size variables cost almost nothing. The final model runs on 8 predictors and explains 89.1% of the variation in price, against 89.4% with length, width, and depth still in it. Three-tenths of a point for three predictors means they were carrying no information carat did not already have.</p>
+
+  <p>That model answers the question the project opened with. Holding everything else constant, one carat is worth about $8,518.61. Moving a stone to the top of all three quality scales at once, High clarity plus Clear color plus Ideal cut, adds $3,129. Weight is worth more than two and a half times the entire grading system.</p>
+
+  <p>Depth percentage and table both came out negative, at roughly -$58.29 and -$39.92 per percentage point. Neither is a quality grade; both describe cut proportions, and diamonds are cut to hit a target range because that range maximizes light return. A stone that drifts out of that range in either direction is worth less, so a negative slope is simply what a straight-line fit reports for a variable whose optimum sits in the middle of its range.</p>
+
   <h3 class="lab">Contribution</h3>
   <p>Partner project for a graduate statistics course. I led the empirical distribution modeling, variable recoding logic, and inferential hypothesis testing stages.</p>
 
   <div class="links">
-    <a target="_blank" rel="noopener" href="https://github.com/levisw/proj">view work on github</a>
+    <a target="_blank" rel="noopener" href="https://github.com/levisw/diamond-price-analysis">view work on github</a>
+    <a target="_blank" rel="noopener" href="https://github.com/levisw/diamond-price-analysis/blob/main/DECISIONS.md">read the decision log</a>
   </div>
 </article>
 

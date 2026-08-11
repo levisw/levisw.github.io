@@ -17,7 +17,7 @@
 - **Flagging Fatal Outcomes in FDA Medical Device Reports** (R): Rare-event classification on 4,863,433 rows of FDA MAUDE data. Deaths are 1.22% of filings. The pruned classification tree scores 98.96% accuracy while catching zero deaths; moving the logistic regression threshold to match training prevalence reaches 88.4% death recall at 85.1% accuracy, AUC 0.928. Code: https://github.com/levisw/FDA-Medical-Device-Failure-Classification
 - **Consolidating Eight Incompatible Sales Feeds in SAS** (SAS): Eight regional sources in six file layouts reconciled into one standardized dataset, plus a formatted ODS PDF report with per-capita exception flagging. Code: https://github.com/levisw/Beverage-Company-Case-Study
 - **Finding a Marketing Angle in Consumer Wearable Data** (R): Google Data Analytics capstone. Sedentary minutes correlate with sleep duration at r = -0.60 versus r = -0.19 for total steps. Code: https://github.com/levisw/Bellabeat-Case-Study
-- **What Actually Drives the Price of a Diamond** (Excel): Descriptive statistics, empirical probability, and inference on 53,920 diamonds. Regression stage in progress.
+- **What Actually Drives the Price of a Diamond** (Excel): Descriptive statistics, empirical probability, inference, and multiple regression on 53,920 diamonds. Price is right-skewed (mean $3,930.99, median $2,401), so probabilities come from the empirical distribution. Final model: 8 predictors, R-squared 0.891, carat worth $8,518.61 per carat against $3,129 for a top-to-bottom upgrade on all three quality grades. Code: https://github.com/levisw/diamond-price-analysis
 
 ## Elsewhere
 
